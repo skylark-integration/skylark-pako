@@ -1,0 +1,9 @@
+/**
+ * skylark-pako - A skylark wrapper for pako.
+ * @author Hudaokeji Co.,Ltd
+ * @version v0.9.0
+ * @link www.skylarkjs.org
+ * @license MIT
+ */
+define([],function(){"use strict";const r=new Uint16Array([3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0]),n=new Uint8Array([16,16,16,16,16,16,16,16,17,17,17,17,18,18,18,18,19,19,19,19,20,20,20,20,21,21,21,21,16,72,78]),t=new Uint16Array([1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577,0,0]),i=new Uint8Array([16,16,16,16,17,17,18,18,19,19,20,20,21,21,22,22,23,23,24,24,25,25,26,26,27,27,28,28,29,29,64,64]);return(e,f,o,u,s,a,l,w)=>{const y=w.bits;let A,U,c,b,d,h,k=0,g=0,j=0,m=0,p=0,q=0,v=0,x=0,z=0,B=0,C=null,D=0;const E=new Uint16Array(16),F=new Uint16Array(16);let G,H,I,J=null,K=0;for(k=0;k<=15;k++)E[k]=0;for(g=0;g<u;g++)E[f[o+g]]++;for(p=y,m=15;m>=1&&0===E[m];m--);if(p>m&&(p=m),0===m)return s[a++]=20971520,s[a++]=20971520,w.bits=1,0;for(j=1;j<m&&0===E[j];j++);for(p<j&&(p=j),x=1,k=1;k<=15;k++)if(x<<=1,(x-=E[k])<0)return-1;if(x>0&&(0===e||1!==m))return-1;for(F[1]=0,k=1;k<15;k++)F[k+1]=F[k]+E[k];for(g=0;g<u;g++)0!==f[o+g]&&(l[F[f[o+g]]++]=g);if(0===e?(C=J=l,h=19):1===e?(C=r,D-=257,J=n,K-=257,h=256):(C=t,J=i,h=-1),B=0,g=0,k=j,d=a,q=p,v=0,c=-1,b=(z=1<<p)-1,1===e&&z>852||2===e&&z>592)return 1;for(;;){G=k-v,l[g]<h?(H=0,I=l[g]):l[g]>h?(H=J[K+l[g]],I=C[D+l[g]]):(H=96,I=0),A=1<<k-v,j=U=1<<q;do{s[d+(B>>v)+(U-=A)]=G<<24|H<<16|I|0}while(0!==U);for(A=1<<k-1;B&A;)A>>=1;if(0!==A?(B&=A-1,B+=A):B=0,g++,0==--E[k]){if(k===m)break;k=f[o+l[g]]}if(k>p&&(B&b)!==c){for(0===v&&(v=p),d+=j,x=1<<(q=k-v);q+v<m&&!((x-=E[q+v])<=0);)q++,x<<=1;if(z+=1<<q,1===e&&z>852||2===e&&z>592)return 1;s[c=B&b]=p<<24|q<<16|d-a|0}}return 0!==B&&(s[d+B]=k-v<<24|64<<16|0),w.bits=p,0}});
+//# sourceMappingURL=../sourcemaps/zlib/inftrees.js.map

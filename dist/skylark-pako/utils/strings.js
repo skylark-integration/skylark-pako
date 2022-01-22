@@ -1,0 +1,9 @@
+/**
+ * skylark-pako - A skylark wrapper for pako.
+ * @author Hudaokeji Co.,Ltd
+ * @version v0.9.0
+ * @link www.skylarkjs.org
+ * @license MIT
+ */
+define([],function(){"use strict";let e=!0;try{String.fromCharCode.apply(null,new Uint8Array(1))}catch(r){e=!1}const r=new Uint8Array(256);for(let e=0;e<256;e++)r[e]=e>=252?6:e>=248?5:e>=240?4:e>=224?3:e>=192?2:1;r[254]=r[254]=1;const t=(r,t)=>{if(t<65534&&r.subarray&&e)return String.fromCharCode.apply(null,r.length===t?r:r.subarray(0,t));let n="";for(let e=0;e<t;e++)n+=String.fromCharCode(r[e]);return n};return{string2buf:function(e){if("function"==typeof TextEncoder&&TextEncoder.prototype.encode)return(new TextEncoder).encode(e);let r,t,n,o,c,f=e.length,u=0;for(o=0;o<f;o++)55296==(64512&(t=e.charCodeAt(o)))&&o+1<f&&56320==(64512&(n=e.charCodeAt(o+1)))&&(t=65536+(t-55296<<10)+(n-56320),o++),u+=t<128?1:t<2048?2:t<65536?3:4;for(r=new Uint8Array(u),c=0,o=0;c<u;o++)55296==(64512&(t=e.charCodeAt(o)))&&o+1<f&&56320==(64512&(n=e.charCodeAt(o+1)))&&(t=65536+(t-55296<<10)+(n-56320),o++),t<128?r[c++]=t:t<2048?(r[c++]=192|t>>>6,r[c++]=128|63&t):t<65536?(r[c++]=224|t>>>12,r[c++]=128|t>>>6&63,r[c++]=128|63&t):(r[c++]=240|t>>>18,r[c++]=128|t>>>12&63,r[c++]=128|t>>>6&63,r[c++]=128|63&t);return r},buf2string:function(e,n){const o=n||e.length;if("function"==typeof TextDecoder&&TextDecoder.prototype.decode)return(new TextDecoder).decode(e.subarray(0,n));let c,f;const u=new Array(2*o);for(f=0,c=0;c<o;){let t=e[c++];if(t<128){u[f++]=t;continue}let n=r[t];if(n>4)u[f++]=65533,c+=n-1;else{for(t&=2===n?31:3===n?15:7;n>1&&c<o;)t=t<<6|63&e[c++],n--;n>1?u[f++]=65533:t<65536?u[f++]=t:(t-=65536,u[f++]=55296|t>>10&1023,u[f++]=56320|1023&t)}}return t(u,f)},utf8border:function(e,t){(t=t||e.length)>e.length&&(t=e.length);let n=t-1;for(;n>=0&&128==(192&e[n]);)n--;return n<0?t:0===n?t:n+r[e[n]]>t?n:t}}});
+//# sourceMappingURL=../sourcemaps/utils/strings.js.map
