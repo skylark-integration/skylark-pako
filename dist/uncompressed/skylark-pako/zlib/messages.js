@@ -1,16 +1,19 @@
 define([], function () {
     'use strict';
+    // Original version : zlib 1.2.8
+    // (C) 1995-2013 Jean-loup Gailly and Mark Adler
+    // (C) 2014-2017 Vitaly Puzrin and Andrey Tupitsin
 
     return  {
-        2: 'need dictionary',
-        1: 'stream end',
-        0: '',
-        '-1': 'file error',
-        '-2': 'stream error',
-        '-3': 'data error',
-        '-4': 'insufficient memory',
-        '-5': 'buffer error',
-        '-6': 'incompatible version'
+      2:      'need dictionary',     /* Z_NEED_DICT       2  */
+      1:      'stream end',          /* Z_STREAM_END      1  */
+      0:      '',                    /* Z_OK              0  */
+      '-1':   'file error',          /* Z_ERRNO         (-1) */
+      '-2':   'stream error',        /* Z_STREAM_ERROR  (-2) */
+      '-3':   'data error',          /* Z_DATA_ERROR    (-3) */
+      '-4':   'insufficient memory', /* Z_MEM_ERROR     (-4) */
+      '-5':   'buffer error',        /* Z_BUF_ERROR     (-5) */
+      '-6':   'incompatible version' /* Z_VERSION_ERROR (-6) */
     };
 
 });
