@@ -1,9 +1,9 @@
 define([
     "skylark-langx-ns",
+    "skylark-langx-compression/constants",
     "./deflates",
-    "./inflates",
-    "./zlib/constants"
-], function(skylark, deflates,inflates,constants) {
+    "./inflates"
+], function(skylark, constants,deflates,inflates) {
 
 
     var pako= skylark.attach("intg.pako", {
