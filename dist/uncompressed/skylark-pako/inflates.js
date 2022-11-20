@@ -3,10 +3,11 @@ define([
     'skylark-langx-compression/messages',
     'skylark-langx-compression/zstream',
     'skylark-langx-compression/constants',
+    'skylark-langx-compression/gzheader',
     './utils/common',
     './utils/strings'
 
-], function (zlib_inflate, msg, ZStream, constants,utils, strings) {
+], function (zlib_inflate, msg, ZStream, constants,GZheader,utils, strings) {
     'use strict';
 
 
